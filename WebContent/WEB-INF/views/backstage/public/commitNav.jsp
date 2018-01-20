@@ -35,6 +35,7 @@
 								</li>
 							</ul>
 						</li>
+						
 						<li class="admin-parent">
 							<a class="am-cf" data-am-collapse="{target: '#collapse-nav2'}"><span class="fa fa-users"></span> 顾客 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
 							<ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav2">
@@ -47,6 +48,7 @@
 								</li>
 							</ul>
 						</li>
+						
 						<li class="admin-parent">
 							<a class="am-cf" data-am-collapse="{target: '#collapse-nav3'}"><i class="fa fa-cutlery" aria-hidden="true"></i> 菜品 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
 							<ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav3">
@@ -56,6 +58,20 @@
 								</li>
 								<li>
 									<a href="<%= request.getContextPath()%>/controller/back_control/todisheAdd.jsp" class="am-cf"> 菜品添加
+									</a>
+								</li>
+							</ul>
+						</li>
+						
+						<li class="admin-parent">
+							<a class="am-cf" data-am-collapse="{target: '#collapse-nav4'}"><i class="fa fa-cutlery" aria-hidden="true"></i> 座位 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
+							<ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav4">
+								<li>
+									<a href="<%= request.getContextPath()%>/controller/back_control/totableTable.jsp" class="am-cf"> 座位列表</span>
+									</a>
+								</li>
+								<li>
+									<a href="<%= request.getContextPath()%>/controller/back_control/totableAdd.jsp" class="am-cf"> 座位添加</span>
 									</a>
 								</li>
 							</ul>
