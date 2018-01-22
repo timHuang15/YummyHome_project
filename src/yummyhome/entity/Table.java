@@ -11,6 +11,7 @@ public class Table {
 	private Integer table_surplus;
 	/*¿ª×À·Ñ*/
 	private Double table_price;
+	
 	public Integer getTable_id() {
 		return table_id;
 	}
