@@ -12,7 +12,9 @@ import yummyhome.util.JdbcUtils;
 
 public class TableDaoImpl implements TableDao{
 
-	/*查出所有桌子信息*/
+	/**
+	 * 查出所有桌子信息
+	 * */
 	@Override
 	public List<Table> queryList() {
 		Connection conn = null;
@@ -30,6 +32,42 @@ public class TableDaoImpl implements TableDao{
 			JdbcUtils.close(conn);
 		}
 		return list;
+	}
+	/**
+	 * 按ID单个删除
+	 * */
+	@Override
+	public void delete(Integer id) {
+		delete(new Integer[]{id});
+		
+	}
+	/**
+	 * 按ID多个删除
+	 * */
+	@Override
+	public void delete(Integer[] ids) {
+		if (null!=ids && ids.length>0) {
+			Connection conn = null;
+			try {
+				conn = JdbcUtils.getConnection();
+				String sql = "delete from yummytable ";
+				sql +=" where ";
+				for (int i=0;i<ids.length;i++) {
+					if(i==0){
+						sql += " table_id = ?";
+					}else {
+						sql += " or table_id = ?";
+					}
+				}
+				JdbcUtils.executeUpdate(conn, sql, ids);
+			} catch (SQLException e) {
+				e.printStackTrace();
+				throw new RuntimeException(e);
+			}finally {
+				JdbcUtils.close(conn);
+			}
+		}
+		
 	}
 
 }

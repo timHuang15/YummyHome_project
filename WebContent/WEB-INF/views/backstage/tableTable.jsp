@@ -94,11 +94,13 @@
 												<div class="am-btn-toolbar">
 													<div class="am-btn-group am-btn-group-xs">
 														
-														<button type="button" onclick="jump('<%=t.getTable_id()%>')"
+														<button type="button" onclick="edit('<%=t.getTable_id()%>')"
 															class="am-btn am-btn-default am-btn-xs am-text-secondary">
 															<span class="am-icon-pencil-square-o"></span>编辑 
 														</button>
-														<button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
+														<button type="button" onclick="del('<%=t.getTable_id()%>')"
+														class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only">
+														<span class="am-icon-trash-o"></span> 删除</button>
 													</div>
 												</div>
 											</td>
@@ -135,8 +137,13 @@
 		data-am-offcanvas="{target: '#admin-offcanvas'}"> <!--<i class="fa fa-bars" aria-hidden="true"></i>--></a>
 </body>
  <script>
-	function jump(id) {
+	function edit(id) {
 		var url = document.getElementById("ctx").value+"/controller/back_control/totableChange.jsp?id="+id;
+		window.location.href = url;
+	}
+	
+	function del(id){
+		var url = document.getElementById("ctx").value+"/controller/back_control/tableOperation/delete.jsp?id="+id;
 		window.location.href = url;
 	}
 </script> 
