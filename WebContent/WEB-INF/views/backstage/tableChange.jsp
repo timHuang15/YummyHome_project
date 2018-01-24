@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@page import="java.util.*" %>
+<%@page import="yummyhome.dao.*" %>
+<%@page import="yummyhome.dao.Impl.*" %>
+<%@page import="yummyhome.entity.*" %>
 <!DOCTYPE html>
 <html>
 
@@ -55,31 +59,34 @@
 						<!-- Row start -->
 						<div class="am-u-sm-12">
 							<div class="card-box">
-								<form action="" class="am-form" data-am-validator>
+							<%
+								Table t = (Table)request.getAttribute("tableInfo");
+							%>
+								<form action="<%=request.getContextPath()%>/controller/back_control/tableOperation/edit.jsp" class="am-form" data-am-validator>
 									<fieldset>
 										<div class="am-form-group">
-											<label for="doc-vld-tablepeople">桌子ID：1</label>
-							
+											<label for="doc-vld-tablepeople">桌子ID：<%=t.getTable_id()%></label>
+											<input type="hidden" name="table_id" value="<%=t.getTable_id()%>">
 										</div>
 										
 										<div class="am-form-group">
 											<label for="doc-vld-tablepeople">桌子可容人数：</label>
-											<input type="number" id="doc-vld-price" min="4" max="15" placeholder="人数(4~15)" required/>
+											<input type="number" name="table_people" min="4" max="15" value="<%=t.getTable_people()%>" required/>
 										</div>
 
 										<div class="am-form-group">
 											<label for="doc-vld-tabletotal">桌子总数：</label>
-											<input type="number" id="doc-vld-price" min="2" max="15" placeholder="总数(2~15)" required/>
+											<input type="number" name="table_total" min="2" max="15" value="<%=t.getTable_total()%>" required/>
 										</div>
 
 										<div class="am-form-group">
 											<label for="doc-vld-tablesurplus">桌子剩余：</label>
-											<input type="number" id="doc-vld-price" min="1" max="15" placeholder="剩余量(1~15)" required/>
+											<input type="number" name="table_surplus" min="1" max="15" value="<%=t.getTable_surplus()%>" required/>
 										</div>
 
 										<div class="am-form-group">
 											<label for="doc-vld-tableprice">开桌费：</label>
-											<input type="number" id="doc-vld-price" min="20" max="50" placeholder="费用(20~50)" required/>
+											<input type="number" name="table_price" min="20" max="50" value="<%=t.getTable_price()%>" required/>
 										</div>
 
 										<button class="am-btn am-btn-secondary" type="submit">修改</button>

@@ -162,7 +162,7 @@
 	/*---- 单个编辑操作 ----*/
 	function edit(id) {
 		var url = document.getElementById("ctx").value
-				+ "/controller/back_control/totableChange.jsp?id=" + id;
+				+ "/controller/back_control/tableOperation/toedit.jsp?id=" + id;
 		window.location.href = url;
 	}
 	/*---- 添加操作 ----*/
