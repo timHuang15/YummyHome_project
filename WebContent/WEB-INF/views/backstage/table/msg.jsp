@@ -8,7 +8,7 @@
 		<title>操作提示</title>
 		
 		<%@ include file="/WEB-INF/views/backstage/public/commitCSS.jsp"%>
-		
+		<meta http-equiv="refresh" content="2;url=<%=request.getContextPath()%><%=request.getAttribute("targetPage") %>"/>
 	</head>
 
 	<body>

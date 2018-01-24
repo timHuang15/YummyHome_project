@@ -58,17 +58,34 @@
 			<!-- Start content -->
 			<div class="content">
 				<div class="card-box">
-
+					<!-- Row start -->
+					<div class="am-g">
+						<div class="am-u-sm-12 am-u-md-6">
+							<div class="am-btn-toolbar">
+								<div class="am-btn-group am-btn-group-xs">
+									<button type="button" class="am-btn am-btn-default">
+										<span class="am-icon-plus"></span> 新增
+									</button>
+									<button type="button" class="am-btn am-btn-default" onclick="delAll()">
+										<span class="am-icon-trash-o"></span> 删除
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Row end -->
 
 					<!-- Row start -->
 					<div class="am-g">
 						<div class="am-u-sm-12">
-							<form class="am-form">
+							<form class="am-form" id="listForm" method="post"
+								action="<%=request.getContextPath()%>/controller/back_control/tableOperation/delete.jsp">
 								<table
 									class="am-table am-table-striped am-table-hover table-main">
 									<thead>
 										<tr>
-											<th class="table-check"><input type="checkbox" /></th>
+											<th class="table-check"><input type="checkbox"
+												name="selectALL" onclick="selectAll()" /></th>
 											<th class="table-id">ID</th>
 											<th class="table-title">座位人数</th>
 											<th class="table-author am-hide-sm-only">桌子总数</th>
@@ -78,14 +95,16 @@
 									</thead>
 									<tbody>
 										<!-- loop start -->
-										<input type="hidden" id="ctx" value="<%=request.getContextPath()%>"/>
+										<input type="hidden" id="ctx"
+											value="<%=request.getContextPath()%>" />
 										<%
 											List<Table> tables = (List<Table>) request.getAttribute("tableList");
 											if (null != tables) {
 												for (Table t : tables) {
 										%>
 										<tr>
-											<td><input type="checkbox" /></td>
+											<td><input name="id" type="checkbox"
+												value="<%=t.getTable_id()%>" /></td>
 											<td><%=t.getTable_id()%></td>
 											<td><%=t.getTable_people()%>人桌</td>
 											<td class="am-hide-sm-only"><%=t.getTable_total()%>张</td>
@@ -93,14 +112,17 @@
 											<td>
 												<div class="am-btn-toolbar">
 													<div class="am-btn-group am-btn-group-xs">
-														
-														<button type="button" onclick="edit('<%=t.getTable_id()%>')"
+
+														<button type="button"
+															onclick="edit('<%=t.getTable_id()%>')"
 															class="am-btn am-btn-default am-btn-xs am-text-secondary">
-															<span class="am-icon-pencil-square-o"></span>编辑 
+															<span class="am-icon-pencil-square-o"></span>编辑
 														</button>
-														<button type="button" onclick="del('<%=t.getTable_id()%>')"
-														class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only">
-														<span class="am-icon-trash-o"></span> 删除</button>
+														<button type="button"
+															onclick="del('<%=t.getTable_id()%>')"
+															class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only">
+															<span class="am-icon-trash-o"></span> 删除
+														</button>
 													</div>
 												</div>
 											</td>
@@ -136,15 +158,30 @@
 		class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu"
 		data-am-offcanvas="{target: '#admin-offcanvas'}"> <!--<i class="fa fa-bars" aria-hidden="true"></i>--></a>
 </body>
- <script>
+<script>
+	/*---- 单个编辑操作 ----*/
 	function edit(id) {
-		var url = document.getElementById("ctx").value+"/controller/back_control/totableChange.jsp?id="+id;
+		var url = document.getElementById("ctx").value
+				+ "/controller/back_control/totableChange.jsp?id=" + id;
 		window.location.href = url;
 	}
-	
-	function del(id){
-		var url = document.getElementById("ctx").value+"/controller/back_control/tableOperation/delete.jsp?id="+id;
+	/*---- 单个删除操作 ----*/
+	function del(id) {
+		var url = document.getElementById("ctx").value
+				+ "/controller/back_control/tableOperation/delete.jsp?id=" + id;
 		window.location.href = url;
 	}
-</script> 
+	/*---- 全选操作 ----*/
+	function selectAll() {
+		var idDoms = document.getElementsByName('id');
+		for (var i = 0; i < idDoms.length; i++) {
+			idDoms[i].checked = !idDoms[i].checked;
+		}
+	}
+	/*---- 提交全删除操作 ----*/
+	function delAll(){
+		var form = document.getElementById('listForm');
+		form.submit();
+	}
+</script>
 </html>
