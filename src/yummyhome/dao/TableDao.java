@@ -5,7 +5,8 @@ import java.util.List;
 import yummyhome.entity.Table;
 
 public interface TableDao {
-
+	/*保存添加*/
+	public void save(Table t);
 	/*查出所有桌子信息*/
 	public List<Table> queryList();
 	/*按ID单个删除*/

@@ -1,14 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 
 	<head>
 		<meta charset="UTF-8">
-		<title>座位添加</title>
+		<title>操作提示</title>
 		
 		<%@ include file="/WEB-INF/views/backstage/public/commitCSS.jsp"%>
-		
+		<meta http-equiv="refresh" content="2;url=<%=request.getContextPath()%><%=request.getAttribute("targetPage") %>"/>
 	</head>
 
 	<body>
@@ -22,7 +22,7 @@
 				<ul class="am-nav am-navbar-nav am-navbar-left">
 
 					<li>
-						<h4 class="page-title">座位添加</h4></li>
+						<h4 class="page-title">操作提示</h4></li>
 				</ul>
 			</div>
 		</header>
@@ -54,34 +54,13 @@
 					<div class="am-g">
 						<!-- Row start -->
 						<div class="am-u-sm-12">
-							<div class="card-box">
-								<form action="<%=request.getContextPath()%>/controller/back_control/tableOperation/add.jsp" 
-								class="am-form" data-am-validator>
-									<fieldset>	
-										<div class="am-form-group">
-											<label for="doc-vld-tablepeople">桌子可容人数：</label>
-											<input type="number" name="table_people" id="doc-vld-price" min="4" max="15" placeholder="人数(4~15)" required/>
-										</div>
-
-										<div class="am-form-group">
-											<label for="doc-vld-tabletotal">桌子总数：</label>
-											<input type="number" name="table_total" id="doc-vld-price" min="2" max="15" placeholder="总数(2~15)" required/>
-										</div>
-
-										<div class="am-form-group">
-											<label for="doc-vld-tablesurplus">桌子剩余：</label>
-											<input type="number" name="table_surplus" id="doc-vld-price" min="1" max="15" placeholder="剩余量(1~15)" required/>
-										</div>
-
-										<div class="am-form-group">
-											<label for="doc-vld-tableprice">开桌费：</label>
-											<input type="number" name="table_price" id="doc-vld-price" min="20" max="50" placeholder="费用(20~50)" required/>
-										</div>
-
-										<button class="am-btn am-btn-secondary" type="submit">添加</button>
-									</fieldset>
-								</form>
-
+							<div class="card-box" style="height: 500px;">
+								<h5 style="font-size: 40px;text-align: center;line-height: 200px;">
+									恭喜你,<%=request.getAttribute("msg") %>!
+								</h5>
+								<div>
+									<a href="<%=request.getContextPath()%><%=request.getAttribute("targetPage") %>">返回</a>
+								</div>
 							</div>
 						</div>
 						<!-- Row end -->

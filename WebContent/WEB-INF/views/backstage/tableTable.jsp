@@ -63,7 +63,7 @@
 						<div class="am-u-sm-12 am-u-md-6">
 							<div class="am-btn-toolbar">
 								<div class="am-btn-group am-btn-group-xs">
-									<button type="button" class="am-btn am-btn-default">
+									<button type="button" class="am-btn am-btn-default" onclick="add()">
 										<span class="am-icon-plus"></span> 新增
 									</button>
 									<button type="button" class="am-btn am-btn-default" onclick="delAll()">
@@ -119,7 +119,7 @@
 															<span class="am-icon-pencil-square-o"></span>编辑
 														</button>
 														<button type="button"
-															onclick="del('<%=t.getTable_id()%>')"
+															onclick="delAll(<%=t.getTable_id()%>)"
 															class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only">
 															<span class="am-icon-trash-o"></span> 删除
 														</button>
@@ -165,10 +165,10 @@
 				+ "/controller/back_control/totableChange.jsp?id=" + id;
 		window.location.href = url;
 	}
-	/*---- 单个删除操作 ----*/
-	function del(id) {
+	/*---- 添加操作 ----*/
+	function add(){
 		var url = document.getElementById("ctx").value
-				+ "/controller/back_control/tableOperation/delete.jsp?id=" + id;
+		+ "/controller/back_control/totableAdd.jsp";
 		window.location.href = url;
 	}
 	/*---- 全选操作 ----*/
@@ -178,10 +178,44 @@
 			idDoms[i].checked = !idDoms[i].checked;
 		}
 	}
-	/*---- 提交全删除操作 ----*/
-	function delAll(){
-		var form = document.getElementById('listForm');
-		form.submit();
+	/*---- 删除操作 ----*/
+	function delAll(id){
+		//单条记录删除提示
+		if(!isNaN(id)){
+			//提示用户确定删除
+			var isSure = confirm('确定删除?');
+			if(!isSure){
+				return;
+			}
+			
+			var url = document.getElementById("ctx").value
+			+ "/controller/back_control/tableOperation/delete.jsp?id=" + id;
+			window.location.href = url;
+		}
+		//多条记录删除提示
+		else{
+			var idDoms = document.getElementsByName('id');
+			//过滤出选择的ID
+			var selectArr = [];
+			for(var i=0;i<idDoms.length;i++){
+				if(idDoms[i].checked == true){
+				selectArr.push(idDoms[i].value);
+				}
+			}
+			//一条都没选中
+			if(selectArr.length==0){
+				alert('请选择需删除的记录!');
+				return;
+			}
+			//提示用户确定删除
+			var isSure = confirm('确定删除?');
+			if(!isSure){
+				return;
+			}
+			
+			var form = document.getElementById('listForm');
+			form.submit();
+		}
 	}
 </script>
 </html>

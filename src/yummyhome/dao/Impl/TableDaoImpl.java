@@ -11,7 +11,26 @@ import yummyhome.entity.Table;
 import yummyhome.util.JdbcUtils;
 
 public class TableDaoImpl implements TableDao{
-
+	/**
+	 * 保存添加
+	 * */
+	@Override
+	public void save(Table t) {
+		Connection conn = null;
+		try {
+			conn = JdbcUtils.getConnection();
+			String sql = "insert into yummytable (table_people,table_total,table_surplus,table_price) values (?,?,?,?)";
+			Object[] params = {t.getTable_people(),t.getTable_total(),t.getTable_surplus(),t.getTable_price()};
+			JdbcUtils.executeUpdate(conn, sql,params);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}finally {
+			JdbcUtils.close(conn);
+		}
+		
+	}
+	
 	/**
 	 * 查出所有桌子信息
 	 * */
@@ -33,6 +52,7 @@ public class TableDaoImpl implements TableDao{
 		}
 		return list;
 	}
+	
 	/**
 	 * 按ID单个删除
 	 * */
@@ -41,6 +61,7 @@ public class TableDaoImpl implements TableDao{
 		delete(new Integer[]{id});
 		
 	}
+	
 	/**
 	 * 按ID多个删除
 	 * */
@@ -69,5 +90,6 @@ public class TableDaoImpl implements TableDao{
 		}
 		
 	}
+	
 
 }
