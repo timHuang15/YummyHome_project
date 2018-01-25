@@ -1,17 +1,14 @@
+<%@page import="yummyhome.entity.Customer"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@page import="java.util.*" %>
-<%@page import="yummyhome.dao.*" %>
-<%@page import="yummyhome.dao.Impl.*" %>
-<%@page import="yummyhome.entity.*" %>
 <!DOCTYPE html>
 <html>
 
 	<head>
 		<meta charset="UTF-8">
-		<title>座位修改</title>
+		<title>顾客信息修改</title>
 		
-		<%@ include file="/WEB-INF/views/backstage/public/commitCSS.jsp"%>
+		<%@ include file="/WEB-INF/views/backstage/public/commitCSS.jsp"%> 
 		
 	</head>
 
@@ -26,8 +23,8 @@
 				<ul class="am-nav am-navbar-nav am-navbar-left">
 
 					<li>
-						<h4 class="page-title">座位修改</h4></li>
-				</ul>
+						<h4 class="page-title">顾客信息修改</h4></li>
+				</ul>	
 			</div>
 		</header>
 		<!-- end page -->
@@ -40,7 +37,7 @@
 				<div class="sidebar-inner slimscrollleft" style="overflow: hidden; width: auto; height: 548px;">-->
 			<!-- sidebar start -->
 			
-			<%@ include file="/WEB-INF/views/backstage/public/commitNav.jsp"%>
+			<%@ include file="/WEB-INF/views/backstage/public/commitNav.jsp"%> 
 			
 			<!-- sidebar end -->
 
@@ -60,37 +57,46 @@
 						<div class="am-u-sm-12">
 							<div class="card-box">
 							<%
-								Table t = (Table)request.getAttribute("tableInfo");
+								Customer c = (Customer)request.getAttribute("customerInfo");
 							%>
-								<form action="<%=request.getContextPath()%>/controller/back_control/tableOperation/edit.jsp" 
+								<form action="<%=request.getContextPath()%>/controller/back_control/customerOperation/edit.jsp" 
 									  class="am-form" data-am-validator>
 									<fieldset>
 										<div class="am-form-group">
-											<label for="doc-vld-tablepeople">桌子ID：<%=t.getTable_id()%></label>
-											<input type="hidden" name="table_id" value="<%=t.getTable_id()%>">
+											<label for="doc-vld-tablepeople">顾客ID：<%=c.getCustomer_id()%></label>
+											<input type="hidden" name="customer_id" 
+												   value="<%=c.getCustomer_id()%>">
 										</div>
 										
 										<div class="am-form-group">
-											<label for="doc-vld-tablepeople">桌子可容人数：</label>
-											<input type="number" name="table_people" min="4" max="15" value="<%=t.getTable_people()%>" required/>
+											<label for="doc-vld-relname">顾客真实姓名：</label>
+											<input type="text" name="customer_name"
+												   id="doc-vld-relname" minlength="3" 
+												   value="<%=c.getCustomer_name() %>" required/>
 										</div>
 
 										<div class="am-form-group">
-											<label for="doc-vld-tabletotal">桌子总数：</label>
-											<input type="number" name="table_total" min="2" max="15" value="<%=t.getTable_total()%>" required/>
+											<label for="doc-vld-username">顾客新用户名：</label>
+											<input type="text" name="customer_user_name"
+												   id="doc-vld-username" minlength="1" 
+												   value="<%=c.getCustomer_user_name() %>" required/>
 										</div>
 
 										<div class="am-form-group">
-											<label for="doc-vld-tablesurplus">桌子剩余：</label>
-											<input type="number" name="table_surplus" min="1" max="15" value="<%=t.getTable_surplus()%>" required/>
+											<label for="doc-vld-phone">新联系电话：</label>
+											<input type="text" name="customer_phone"
+												   id="doc-vld-phone" minlength="11" 
+												   value="<%=c.getCustomer_phone() %>" required/>
 										</div>
 
 										<div class="am-form-group">
-											<label for="doc-vld-tableprice">开桌费：</label>
-											<input type="number" name="table_price" min="20" max="50" value="<%=t.getTable_price()%>" required/>
+											<label for="doc-vld-password">顾客新登录密码：</label>
+											<input type="text" name="customer_pwd" 
+												   id="doc-vld-password" maxlength="10" minlength="3" 
+												   value="<%=c.getCustomer_pwd() %>" required />
 										</div>
-
-										<button class="am-btn am-btn-secondary" type="submit">修改</button>
+										
+										<button class="am-btn am-btn-secondary" type="submit">添加</button>
 									</fieldset>
 								</form>
 
@@ -104,7 +110,7 @@
 			<!-- end right Content here -->
 			<!--</div>-->
 		</div>
-		</div>
+		
 
 		<!-- navbar -->
 		<a href="admin-offcanvas" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}">

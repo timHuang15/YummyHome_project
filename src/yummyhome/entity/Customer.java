@@ -1,15 +1,15 @@
 package yummyhome.entity;
 
 public class Customer {
-	/*¹Ë¿ÍID*/
+	/*é¡¾å®¢ID*/
 	private Integer customer_id;
-	/*¹Ë¿ÍĞÕÃû*/
+	/*é¡¾å®¢å§“å*/
 	private String customer_name;
-	/*¹Ë¿Íµç»°*/
+	/*é¡¾å®¢ç”µè¯*/
 	private String customer_phone;
-	/*¹Ë¿ÍÕËºÅÃû*/
+	/*é¡¾å®¢ç”¨æˆ·å*/
 	private String customer_user_name;
-	/*¹Ë¿ÍÕËºÅÃÜÂë*/
+	/*é¡¾å®¢å¯†ç */
 	private String customer_pwd;
 	
 	public Integer getCustomer_id() {

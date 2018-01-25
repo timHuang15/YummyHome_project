@@ -11,7 +11,7 @@ import java.util.List;
 
 
 /**
- * ¹¤¾ßÀà
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  * 
  * @author Administrator
  *
@@ -20,20 +20,20 @@ import java.util.List;
 
 public class JdbcUtils {
 	private static String driverClass = "com.mysql.jdbc.Driver";
-	private static String url = "jdbc:mysql://127.0.0.1:3306/yummy";
+	private static String url = "jdbc:mysql://127.0.0.1:3306/yummy?useUnicode=true&characterEncoding=utf-8";
 	private static String user = "root";
 	private static String password = "";
 
 	static {
 		try {
-			Class.forName(driverClass);// ¼ÓÔØÇý¶¯Àà
+			Class.forName(driverClass);// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 	}
 
 	/**
-	 * »ñµÃÁ¬½Ó
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * 
 	 * @return
 	 * @throws SQLException
@@ -43,7 +43,7 @@ public class JdbcUtils {
 	}
 
 	/**
-	 * ¹Ø±ÕResultSet
+	 * ï¿½Ø±ï¿½ResultSet
 	 * 
 	 * @param rs
 	 */
@@ -58,7 +58,7 @@ public class JdbcUtils {
 	}
 
 	/**
-	 * ¹Ø±ÕStatement
+	 * ï¿½Ø±ï¿½Statement
 	 * 
 	 * @param rs
 	 */
@@ -73,7 +73,7 @@ public class JdbcUtils {
 	}
 
 	/**
-	 * ¹Ø±ÕConnection
+	 * ï¿½Ø±ï¿½Connection
 	 * 
 	 * @param rs
 	 */
@@ -88,7 +88,7 @@ public class JdbcUtils {
 	}
 
 	/**
-	 * ¹Ø±Õ×ÊÔ´
+	 * ï¿½Ø±ï¿½ï¿½ï¿½Ô´
 	 * 
 	 * @param rs
 	 * @param stmt
@@ -101,7 +101,7 @@ public class JdbcUtils {
 	}
 
 	/**
-	 * Ö´ÐÐinsert,update,deleteµÈ²Ù×÷
+	 * Ö´ï¿½ï¿½insert,update,deleteï¿½È²ï¿½ï¿½ï¿½
 	 * 
 	 * @param conn
 	 * @param sql
@@ -129,7 +129,7 @@ public class JdbcUtils {
 	}
 	
 	/**
-	 * ²éÑ¯£¬Ö´ÐÐselectÓï¾ä
+	 * ï¿½ï¿½Ñ¯ï¿½ï¿½Ö´ï¿½ï¿½selectï¿½ï¿½ï¿½
 	 * @param conn
 	 * @param sql
 	 * @param params

@@ -2,10 +2,7 @@ package yummyhome.dao.handler;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
 
-import yummyhome.dao.TableDao;
-import yummyhome.dao.Impl.TableDaoImpl;
 import yummyhome.entity.Table;
 import yummyhome.util.ResultSetHandler;
 
@@ -22,9 +19,4 @@ public class TableResultSetHandler implements ResultSetHandler<Table> {
 		return table;
 	}
 
-	public static void main(String[] args){
-		TableDao td = new TableDaoImpl();
-		List<Table> list = td.queryList();
-		System.out.println(list);
-	}
 }

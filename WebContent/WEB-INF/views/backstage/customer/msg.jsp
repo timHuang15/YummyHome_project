@@ -1,18 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@page import="java.util.*" %>
-<%@page import="yummyhome.dao.*" %>
-<%@page import="yummyhome.dao.Impl.*" %>
-<%@page import="yummyhome.entity.*" %>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 
 	<head>
 		<meta charset="UTF-8">
-		<title>座位修改</title>
+		<title>操作提示</title>
 		
 		<%@ include file="/WEB-INF/views/backstage/public/commitCSS.jsp"%>
-		
+		<meta http-equiv="refresh" content="2;url=<%=request.getContextPath()%><%=request.getAttribute("targetPage") %>"/>
 	</head>
 
 	<body>
@@ -26,7 +22,7 @@
 				<ul class="am-nav am-navbar-nav am-navbar-left">
 
 					<li>
-						<h4 class="page-title">座位修改</h4></li>
+						<h4 class="page-title">操作提示</h4></li>
 				</ul>
 			</div>
 		</header>
@@ -58,42 +54,13 @@
 					<div class="am-g">
 						<!-- Row start -->
 						<div class="am-u-sm-12">
-							<div class="card-box">
-							<%
-								Table t = (Table)request.getAttribute("tableInfo");
-							%>
-								<form action="<%=request.getContextPath()%>/controller/back_control/tableOperation/edit.jsp" 
-									  class="am-form" data-am-validator>
-									<fieldset>
-										<div class="am-form-group">
-											<label for="doc-vld-tablepeople">桌子ID：<%=t.getTable_id()%></label>
-											<input type="hidden" name="table_id" value="<%=t.getTable_id()%>">
-										</div>
-										
-										<div class="am-form-group">
-											<label for="doc-vld-tablepeople">桌子可容人数：</label>
-											<input type="number" name="table_people" min="4" max="15" value="<%=t.getTable_people()%>" required/>
-										</div>
-
-										<div class="am-form-group">
-											<label for="doc-vld-tabletotal">桌子总数：</label>
-											<input type="number" name="table_total" min="2" max="15" value="<%=t.getTable_total()%>" required/>
-										</div>
-
-										<div class="am-form-group">
-											<label for="doc-vld-tablesurplus">桌子剩余：</label>
-											<input type="number" name="table_surplus" min="1" max="15" value="<%=t.getTable_surplus()%>" required/>
-										</div>
-
-										<div class="am-form-group">
-											<label for="doc-vld-tableprice">开桌费：</label>
-											<input type="number" name="table_price" min="20" max="50" value="<%=t.getTable_price()%>" required/>
-										</div>
-
-										<button class="am-btn am-btn-secondary" type="submit">修改</button>
-									</fieldset>
-								</form>
-
+							<div class="card-box" style="height: 500px;">
+								<h5 style="font-size: 40px;text-align: center;line-height: 200px;">
+									恭喜你,<%=request.getAttribute("msg") %>!
+								</h5>
+								<div>
+									<a href="<%=request.getContextPath()%><%=request.getAttribute("targetPage") %>">返回</a>
+								</div>
 							</div>
 						</div>
 						<!-- Row end -->

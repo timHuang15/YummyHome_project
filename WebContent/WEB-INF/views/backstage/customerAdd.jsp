@@ -55,26 +55,27 @@
 						<!-- Row start -->
 						<div class="am-u-sm-12">
 							<div class="card-box">
-								<form action="" class="am-form" data-am-validator>
+								<form action="<%=request.getContextPath()%>/controller/back_control/customerOperation/add.jsp" 
+								method="post" class="am-form" data-am-validator>
 									<fieldset>
 										<div class="am-form-group">
 											<label for="doc-vld-relname">顾客真实姓名：</label>
-											<input type="text" id="doc-vld-relname" minlength="3" placeholder="请输入顾客姓名（至少 3个字符）" required/>
+											<input type="text" name="customer_name" minlength="2" placeholder="请输入顾客姓名（至少 2个字符）" required/>
 										</div>
 
 										<div class="am-form-group">
 											<label for="doc-vld-username">顾客用户名：</label>
-											<input type="text" id="doc-vld-username" minlength="1" placeholder="请输入顾客用户名（至少 1个字符）" required/>
+											<input type="text" name="customer_user_name" minlength="1" placeholder="请输入顾客用户名（至少 1个字符）" required/>
 										</div>
 
 										<div class="am-form-group">
 											<label for="doc-vld-phone">联系电话：</label>
-											<input type="text" id="doc-vld-phone" minlength="11" placeholder="输入顾客联系电话(需填写手机号码)" required/>
+											<input type="text" name="customer_phone" minlength="11" placeholder="输入顾客联系电话(需填写手机号码)" required/>
 										</div>
 
 										<div class="am-form-group">
 											<label for="doc-vld-password">顾客登录密码：</label>
-											<input type="text" class="" id="doc-vld-password" maxlength="10" minlength="3" placeholder="输入顾客登录密码(3~10位之间)"required />
+											<input type="text" name="customer_pwd" maxlength="10" minlength="3" placeholder="输入顾客登录密码(3~10位之间)"required />
 										</div>
 										
 										<button class="am-btn am-btn-secondary" type="submit">添加</button>

@@ -1,11 +1,11 @@
 package yummyhome.entity;
 
 public class Admin {
-	/*¹ÜÀíÔ±ID*/
+	/*ç®¡ç†å‘˜ID*/
 	private Integer admin_id;
-	/*¹ÜÀíÔ±ÓÃ»§Ãû*/
+	/*ç®¡ç†å‘˜ç”¨æˆ·å*/
 	private String admin_name;
-	/*¹ÜÀíÔ±ÃÜÂë*/
+	/*ç®¡ç†å‘˜å¯†ç */
 	private String admin_pwd;
 	
 	public Integer getAdmin_id() {

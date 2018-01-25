@@ -3,21 +3,23 @@ package yummyhome.entity;
 import java.math.BigDecimal;
 
 public class Dishe {
-	/*²ËÆ·ID*/
+	/*èœå“ID*/
 	private Integer dishe_id;
-	/*²ËÆ·Ãû³Æ*/
+	/*èœå“åç§°*/
 	private String dishe_name;
-	/*²ËÆ·Àà±ğ*/
+	/*èœå“ç±»åˆ«*/
 	private String dishe_category;
-	/*²ËÆ·ĞÅÏ¢*/
+	/*èœå“ä¿¡æ¯*/
 	private String dishe_info;
-	/*²ËÆ·Í¼Æ¬url*/
-	private String dishe_img_url;
-	/*²ËÆ·µ¥¼Û*/
+	/*èœå“å¤§å›¾ç‰‡URL*/
+	private String dishe_Bimg_url;
+	/*èœå“å°å›¾ç‰‡URL*/
+	private String dishe_Simg_url;
+	/*èœå“ä»·æ ¼*/
 	private BigDecimal dishe_price;
-	/*²ËÆ·ÈÕÏúÊÛ¶î*/
+	/*èœå“æ—¥é”€å”®é¢*/
 	private Integer dishe_total;
-	/*²ËÆ·Ê£ÓàÁ¿*/
+	/*èœå“å‰©ä½™é‡*/
 	private Integer dishe_surplus;
 	
 	public Integer getDishe_id() {
@@ -44,11 +46,17 @@ public class Dishe {
 	public void setDishe_info(String dishe_info) {
 		this.dishe_info = dishe_info;
 	}
-	public String getDishe_img_url() {
-		return dishe_img_url;
+	public String getDishe_Bimg_url() {
+		return dishe_Bimg_url;
 	}
-	public void setDishe_img_url(String dishe_img_url) {
-		this.dishe_img_url = dishe_img_url;
+	public void setDishe_Bimg_url(String dishe_Bimg_url) {
+		this.dishe_Bimg_url = dishe_Bimg_url;
+	}
+	public String getDishe_Simg_url() {
+		return dishe_Simg_url;
+	}
+	public void setDishe_Simg_url(String dishe_Simg_url) {
+		this.dishe_Simg_url = dishe_Simg_url;
 	}
 	public BigDecimal getDishe_price() {
 		return dishe_price;

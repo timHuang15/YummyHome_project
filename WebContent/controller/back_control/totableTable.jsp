@@ -11,8 +11,8 @@ TableDao td = new TableDaoImpl();
 
 <%
 	List<Table> list = td.queryList();
-
 	request.setAttribute("tableList", list);
+	
 	RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/backstage/tableTable.jsp");
 	rd.forward(request, response);
 %>

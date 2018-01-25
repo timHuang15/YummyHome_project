@@ -12,7 +12,7 @@ import yummyhome.util.JdbcUtils;
 
 public class TableDaoImpl implements TableDao{
 	/**
-	 * ±£´æÌí¼Ó
+	 * æ·»åŠ æ¡Œå­è®°å½•
 	 * */
 	@Override
 	public void save(Table t) {
@@ -32,7 +32,7 @@ public class TableDaoImpl implements TableDao{
 	}
 	
 	/**
-	 * ²é³öËùÓĞ×À×ÓĞÅÏ¢
+	 * åˆ—å‡ºæ‰€æœ‰æ¡Œå­
 	 * */
 	@Override
 	public List<Table> queryList() {
@@ -54,7 +54,7 @@ public class TableDaoImpl implements TableDao{
 	}
 	
 	/**
-	 * °´IDµ¥¸öÉ¾³ı
+	 * æ ¹æ®IDåˆ é™¤æ¡Œå­
 	 * */
 	@Override
 	public void delete(Integer id) {
@@ -63,7 +63,7 @@ public class TableDaoImpl implements TableDao{
 	}
 	
 	/**
-	 * °´ID¶à¸öÉ¾³ı
+	 * æ ¹æ®IDåˆ é™¤å¤šå¼ æ¡Œå­
 	 * */
 	@Override
 	public void delete(Integer[] ids) {
@@ -92,7 +92,7 @@ public class TableDaoImpl implements TableDao{
 	}
 
 	/**
-	 * ¸ù¾İID²éÕÒµ¥Ìõ¼ÇÂ¼
+	 * æ ¹æ®IDæŸ¥æ‰¾æ¡Œå­
 	 * */
 	@Override
 	public Table queryById(Integer id) {
@@ -118,7 +118,7 @@ public class TableDaoImpl implements TableDao{
 	}
 	
 	/**
-	 * ĞŞ¸Ä¼ÇÂ¼
+	 * ä¿®æ”¹æ¡Œå­ä¿¡æ¯
 	 * */
 	@Override
 	public void update(Table t) {

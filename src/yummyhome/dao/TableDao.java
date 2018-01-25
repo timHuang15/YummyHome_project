@@ -5,16 +5,16 @@ import java.util.List;
 import yummyhome.entity.Table;
 
 public interface TableDao {
-	/*±£´æÌí¼Ó*/
+	/*æ·»åŠ æ¡Œå­è®°å½•*/
 	public void save(Table t);
-	/*¸ù¾İID²éÕÒµ¥Ìõ¼ÇÂ¼*/
+	/*æ ¹æ®IDæŸ¥æ‰¾æ¡Œå­*/
 	public Table queryById(Integer id);
-	/*²é³öËùÓĞ×À×ÓĞÅÏ¢*/
+	/*åˆ—å‡ºæ‰€æœ‰æ¡Œå­*/
 	public List<Table> queryList();
-	/*°´IDµ¥¸öÉ¾³ı*/
+	/*æ ¹æ®IDåˆ é™¤æ¡Œå­*/
 	public void delete(Integer id);
-	/*°´ID¶à¸öÉ¾³ı*/
+	/*æ ¹æ®IDåˆ é™¤å¤šå¼ æ¡Œå­*/
 	public void delete(Integer[] ids);
-	/*ĞŞ¸Ä¼ÇÂ¼*/
+	/*ä¿®æ”¹æ¡Œå­ä¿¡æ¯*/
 	public void update(Table t);
 }
