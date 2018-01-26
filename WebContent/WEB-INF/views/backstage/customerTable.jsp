@@ -111,7 +111,7 @@
 											for (Customer c : customers) {
 										%>
 											<tr>
-												<td><input type="checkbox" name="idBox"
+												<td><input type="checkbox" name="id"
 															value="<%=c.getCustomer_id()%>"/></td>
 												<td><%=c.getCustomer_id()%></td>
 												<td><%=c.getCustomer_user_name() %></td>
@@ -198,7 +198,7 @@
 	}
 	/*---- 全选操作 ----*/
 	function selectAll() {
-		var idDoms = document.getElementsByName('idBox');
+		var idDoms = document.getElementsByName('id');
 		for (var i = 0; i < idDoms.length; i++) {
 			idDoms[i].checked = !idDoms[i].checked;
 		}
@@ -225,7 +225,7 @@
 		}
 		//多条记录删除提示
 		else{
-			var idDoms = document.getElementsByName('idBox');
+			var idDoms = document.getElementsByName('id');
 			//过滤出选择的ID
 			var selectArr = [];
 			for(var i=0;i<idDoms.length;i++){

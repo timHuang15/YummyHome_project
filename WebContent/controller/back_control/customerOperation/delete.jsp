@@ -9,7 +9,7 @@
 
 <%
 	//获得要删除的ID
-	String[] idStrs = request.getParameterValues("idBox");
+	String[] idStrs = request.getParameterValues("id");
 	Integer[] ids = new Integer[idStrs.length];
 	for(int i=0;i<idStrs.length;i++){
 		ids[i] = Integer.valueOf(idStrs[i]);
