@@ -21,11 +21,5 @@ public class CustomerResultSetHandler implements ResultSetHandler<Customer> {
 		customer.setCustomer_pwd(rs.getString("customer_pwd"));
 		return customer;
 	}
-	
-	public static void main(String[] args){
-		CustomerDao cd = new CustomerDaoImp();
-		List<Customer> list = cd.queryList();
-		System.out.println(list);
-	}
 
 }

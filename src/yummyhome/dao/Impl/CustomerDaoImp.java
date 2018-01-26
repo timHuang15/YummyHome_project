@@ -36,14 +36,19 @@ public class CustomerDaoImp implements CustomerDao {
 	 * 列出所有顾客
 	 * */
 	@Override
-	public List<Customer> queryList() {
+	public List<Customer> queryList(String whereSql,Object[] params) {
 		Connection conn = null;
 		List<Customer> list = new ArrayList<Customer>();
 		
 		try {
 			conn = JdbcUtils.getConnection();
-			String sql = "select * from customer order by customer_id desc";
-			Object[] params = {};
+			
+			String sql = "select * from customer ";
+			if(whereSql!=null && !whereSql.trim().isEmpty())
+			{
+				sql = sql+whereSql;
+			}
+			sql = sql +"order by customer_id desc";
 			list = JdbcUtils.executeQuery(conn, sql, params, new CustomerResultSetHandler());
 		} catch (SQLException e) {
 			e.printStackTrace();

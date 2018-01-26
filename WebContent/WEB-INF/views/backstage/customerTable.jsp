@@ -72,14 +72,20 @@
 								</div>
 							</div>
 
+							<!-- search -->
+							<form class="am-form"
+								  action="<%=request.getContextPath()%>/controller/back_control/tocustomerTable.jsp"method="post">
 							<div class="am-u-sm-12 am-u-md-3">
 								<div class="am-input-group am-input-group-sm">
-									<input type="text" class="am-form-field">
+									<input type="text" name="where-customer_name-like" value="${param['where-customer_name-like']}"
+										   class="am-form-field" placeholder="请输入姓名">
 									<span class="am-input-group-btn">
-				            <button class="am-btn am-btn-default" type="button">搜索</button>
-				          </span>
+				            			<button class="am-btn am-btn-default" type="submit">搜索</button>				            	
+				          			</span>
 								</div>
 							</div>
+							</form>
+				            	<!-- search -->
 						</div>
 						<!-- Row end -->
 

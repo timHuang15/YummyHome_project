@@ -8,8 +8,8 @@ import yummyhome.entity.Table;
 public interface CustomerDao {
 	/*添加顾客*/
 	public void insert(Customer c);
-	/*列出所有顾客*/
-	public List<Customer> queryList();
+	/*根据条件列出所有顾客*/
+	public List<Customer> queryList(String whereSql,Object[] params);
 	/*根据ID查处顾客*/
 	public Customer queryById(Integer id);
 	/*根据ID删除顾客*/
