@@ -65,6 +65,7 @@
 												<th>顾客昵称</th>
 												<th>顾客姓名</th>
 												<th>联系电话</th>
+												<th>座位大小</th>
 											</tr>
 										</thead>
 										<tbody>
@@ -72,6 +73,7 @@
 												<td>timHuang</td>
 												<td>黄天荣</td>
 												<td>18819460964</td>
+												<td>12人桌</td>
 											</tr>
 										</tbody>
 									</table>

@@ -16,7 +16,7 @@ public class Dishe {
 	/*菜品小图片URL*/
 	private String dishe_Simg_url;
 	/*菜品价格*/
-	private BigDecimal dishe_price;
+	private Double dishe_price;
 	/*菜品日销售额*/
 	private Integer dishe_total;
 	/*菜品剩余量*/
@@ -58,10 +58,10 @@ public class Dishe {
 	public void setDishe_Simg_url(String dishe_Simg_url) {
 		this.dishe_Simg_url = dishe_Simg_url;
 	}
-	public BigDecimal getDishe_price() {
+	public Double getDishe_price() {
 		return dishe_price;
 	}
-	public void setDishe_price(BigDecimal dishe_price) {
+	public void setDishe_price(Double dishe_price) {
 		this.dishe_price = dishe_price;
 	}
 	public Integer getDishe_total() {
@@ -76,4 +76,12 @@ public class Dishe {
 	public void setDishe_surplus(Integer dishe_surplus) {
 		this.dishe_surplus = dishe_surplus;
 	}
+	@Override
+	public String toString() {
+		return "Dishe [dishe_id=" + dishe_id + ", dishe_name=" + dishe_name + ", dishe_category=" + dishe_category
+				+ ", dishe_info=" + dishe_info + ", dishe_price=" + dishe_price + ", dishe_total=" + dishe_total
+				+ ", dishe_surplus=" + dishe_surplus + "]";
+	}
+	
+	
 }

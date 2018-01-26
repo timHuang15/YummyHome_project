@@ -73,9 +73,10 @@
 							</div>
 
 							<!-- search -->
+							
+							<div class="am-u-sm-12 am-u-md-3">
 							<form class="am-form"
 								  action="<%=request.getContextPath()%>/controller/back_control/tocustomerTable.jsp"method="post">
-							<div class="am-u-sm-12 am-u-md-3">
 								<div class="am-input-group am-input-group-sm">
 									<input type="text" name="where-customer_name-like" value="${param['where-customer_name-like']}"
 										   class="am-form-field" placeholder="请输入姓名">
@@ -83,8 +84,9 @@
 				            			<button class="am-btn am-btn-default" type="submit">搜索</button>				            	
 				          			</span>
 								</div>
+								</form>
 							</div>
-							</form>
+							
 				            	<!-- search -->
 						</div>
 						<!-- Row end -->

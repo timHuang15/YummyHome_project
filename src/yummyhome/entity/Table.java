@@ -1,15 +1,15 @@
 package yummyhome.entity;
 
 public class Table {
-	/*×À×ÓID*/
+	/*æ¡Œä½ID*/
 	private Integer table_id;
-	/*×À×Ó¿ÉÈİÈËÊı*/
+	/*æ¡Œä½å¯å®¹äººæ•°*/
 	private Integer table_people;
-	/*×À×Ó×ÜÊı*/
+	/*æ¡Œä½æ€»æ•°*/
 	private Integer table_total;
-	/*×À×ÓÊ£ÓàÁ¿*/
+	/*æ¡Œä½å‰©ä½™é‡*/
 	private Integer table_surplus;
-	/*¿ª×À·Ñ*/
+	/*æ¡Œä½è´¹ç”¨*/
 	private Double table_price;
 	
 	public Integer getTable_id() {
