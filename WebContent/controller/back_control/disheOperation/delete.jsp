@@ -5,7 +5,7 @@
 <%@page import="yummyhome.dao.Impl.*" %>
 <%@page import="yummyhome.entity.*" %>
 
-<%! CustomerDao cd = new CustomerDaoImp();%>
+<%! DisheDao disheDao = new DisheDaoImpl(); %>
 
 <%
 	//获得要删除的ID
@@ -15,10 +15,10 @@
 		ids[i] = Integer.valueOf(idStrs[i]);
 	}
 	//调用dao进行删除
-	cd.delete(ids);
+	disheDao.delete(ids);
 	//转到视图呈现
 	request.setAttribute("msg", "删除成功");
-	request.setAttribute("targetPage", "/controller/back_control/tocustomerTable.jsp");
+	request.setAttribute("targetPage", "/controller/back_control/todisheTable.jsp");
 	
 	RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/backstage/public/msg.jsp");
 	rd.forward(request, response);

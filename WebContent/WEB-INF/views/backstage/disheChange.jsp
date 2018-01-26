@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@page import="yummyhome.entity.*"%>
 <!DOCTYPE html>
 <html>
 
@@ -55,33 +56,36 @@
 						<!-- Row start -->
 						<div class="am-u-sm-12">
 							<div class="card-box">
+							<% 
+								Dishe d = (Dishe)request.getAttribute("disheInfo");
+							%>
 								<form action="" class="am-form" data-am-validator>
 									<fieldset>
 										<div class="am-form-group">
 											<label for="doc-vld-dishename">菜品名：</label>
-											<input type="text" id="doc-vld-dishename" minlength="2" placeholder="请输入菜品名（至少 2个字符）" required/>
-										</div>
-
-										<div class="am-form-group">
-											<label for="doc-select-1">菜品类别</label>
-											<select id="doc-select-1" required>
-												<option value="">-=请选择一项=-</option>
-												<option value="option1">粤菜</option>
-												<option value="option2">川菜</option>
-												<option value="option3">西餐</option>
-												<option value="option4">饮品</option>
-											</select>
-											<span class="am-form-caret"></span>
+											<input type="text" name="dishe_name" 
+												   minlength="2" value="<%=d.getDishe_name() %>" required/>
 										</div>
 
 										<div class="am-form-group">
 											<label for="doc-vld-price">菜品价格：</label>
-											<input type="number" id="doc-vld-price" min="20" max="200" placeholder="请设置价格(20~200)" required/>
+											<input type="number" name="dishe_price" 
+												   min="20" max="200" 
+												   value="<%=d.getDishe_price() %>" required/>
 										</div>
 
 										<div class="am-form-group">
 											<label for="doc-vld-total">菜品日销售额：</label>
-											<input type="number" class="" id="doc-vld-total" min="50" max="200" placeholder="请设置销售额(50~200)" required />
+											<input type="number" name="dishe_total" 
+												   min="50" max="200" 
+												   value="<%=d.getDishe_total() %>" required />
+										</div>
+										
+										<div class="am-form-group">
+											<label for="doc-vld-total">菜品剩余量：</label>
+											<input type="number" name="dishe_total" 
+												   min="5" max="<%=d.getDishe_total() %>" 
+												   value="<%=d.getDishe_surplus() %>" required />
 										</div>
 
 										<div class="am-form-group">
@@ -91,10 +95,13 @@
 
 										<div class="am-form-group">
 											<label for="doc-vld-ta-2">菜品描述：</label>
-											<textarea id="doc-vld-ta-2" minlength="10" maxlength="100"></textarea>
+											<textarea id="doc-vld-ta-2" name="dishe_info"
+													  minlength="10" maxlength="100">
+												<%=d.getDishe_info() %>
+											</textarea>
 										</div>
 
-										<button class="am-btn am-btn-secondary" type="submit">添加</button>
+										<button class="am-btn am-btn-secondary" type="submit">修改</button>
 									</fieldset>
 								</form>
 

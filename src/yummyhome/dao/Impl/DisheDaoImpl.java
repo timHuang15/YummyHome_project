@@ -13,7 +13,9 @@ import yummyhome.entity.Dishe;
 import yummyhome.util.JdbcUtils;
 
 public class DisheDaoImpl implements DisheDao {
-
+	/**
+	 * 根据条件列出所有菜品
+	 * */
 	@Override
 	public List<Dishe> queryList(String whereSql, Object[] params) {
 		Connection conn = null;
@@ -36,6 +38,67 @@ public class DisheDaoImpl implements DisheDao {
 			JdbcUtils.close(conn);
 		}
 		return list;
+	}
+	/**
+	 * 根据ID查处菜品
+	 * */
+	@Override
+	public Dishe queryById(Integer id) {
+		Connection conn = null;
+		Dishe dishe = null;
+		List<Dishe> list = null;
+		
+		try {
+			conn = JdbcUtils.getConnection();
+			String sql = "select * from dishe where dishe_id=?";
+			Object[] params = {id};
+			list = JdbcUtils.executeQuery(conn, sql, params, new DisheResultSetHandler());
+			if(list!=null && list.size()>0){
+				dishe = list.get(0);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}finally {
+			JdbcUtils.close(conn);
+		}
+		return dishe;
+	}
+	
+	/**
+	 * 根据ID删除菜品
+	 * */
+	@Override
+	public void delete(Integer id) {
+		delete(new Integer[]{id});
+		
+	}
+	/**
+	 * 根据ID删除多份菜品
+	 * */
+	@Override
+	public void delete(Integer[] ids) {
+		if (null!=ids && ids.length>0) {
+			Connection conn = null;
+			try {
+				conn = JdbcUtils.getConnection();
+				String sql = "delete from dishe ";
+				sql +=" where ";
+				for (int i=0;i<ids.length;i++) {
+					if(i==0){
+						sql += " dishe_id = ?";
+					}else {
+						sql += " or dishe_id = ?";
+					}
+				}
+				JdbcUtils.executeUpdate(conn, sql, ids);
+			} catch (SQLException e) {
+				e.printStackTrace();
+				throw new RuntimeException(e);
+			}finally {
+				JdbcUtils.close(conn);
+			}
+		}
 	}
 
 }
