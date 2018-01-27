@@ -28,7 +28,7 @@
 	request.setAttribute("msg", "添加成功");
 	request.setAttribute("targetPage", "/controller/back_control/tocustomerAdd.jsp");
 	
-	RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/backstage/customer/Addmsg.jsp");
+	RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/backstage/public/msg.jsp");
 	rd.forward(request, response);
 %>
     

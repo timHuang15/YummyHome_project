@@ -100,5 +100,25 @@ public class DisheDaoImpl implements DisheDao {
 			}
 		}
 	}
+	
+	/**
+	 * 修改菜品信息
+	 * */
+	@Override
+	public void update(Dishe d) {
+		Connection conn = null;
+		try {
+			conn = JdbcUtils.getConnection();
+			String sql = "update dishe set dishe_name=?,dishe_info=?,dishe_price=?,dishe_total=?,dishe_surplus=?";
+				   sql = sql+" where dishe_id=?";
+			Object[] params = {d.getDishe_name(),d.getDishe_info(),d.getDishe_price(),d.getDishe_total(),d.getDishe_surplus(),d.getDishe_id()};
+			JdbcUtils.executeUpdate(conn, sql,params);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}finally {
+			JdbcUtils.close(conn);
+		}
+	}
 
 }

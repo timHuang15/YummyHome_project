@@ -32,7 +32,7 @@
 	request.setAttribute("msg", "添加成功");
 	request.setAttribute("targetPage", "/controller/back_control/totableAdd.jsp");
 	
-	RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/backstage/table/Addmsg.jsp");
+	RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/backstage/public/msg.jsp");
 	rd.forward(request, response);
 %>
     

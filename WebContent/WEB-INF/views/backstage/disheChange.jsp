@@ -59,8 +59,12 @@
 							<% 
 								Dishe d = (Dishe)request.getAttribute("disheInfo");
 							%>
-								<form action="" class="am-form" data-am-validator>
+								<form action="<%=request.getContextPath()%>/controller/back_control/disheOperation/edit.jsp" 
+									  class="am-form" data-am-validator>
 									<fieldset>
+										<input type="hidden" name="dishe_id" 
+												   value="<%=d.getDishe_id()%>">
+										
 										<div class="am-form-group">
 											<label for="doc-vld-dishename">菜品名：</label>
 											<input type="text" name="dishe_name" 
@@ -83,7 +87,7 @@
 										
 										<div class="am-form-group">
 											<label for="doc-vld-total">菜品剩余量：</label>
-											<input type="number" name="dishe_total" 
+											<input type="number" name="dishe_surplus" 
 												   min="5" max="<%=d.getDishe_total() %>" 
 												   value="<%=d.getDishe_surplus() %>" required />
 										</div>
@@ -93,12 +97,9 @@
 											<input type="file" id="shangpinfile">
 										</div>
 
-										<div class="am-form-group">
+										<div class="am-form-group" style="position:relative;">
 											<label for="doc-vld-ta-2">菜品描述：</label>
-											<textarea id="doc-vld-ta-2" name="dishe_info"
-													  minlength="10" maxlength="100">
-												<%=d.getDishe_info() %>
-											</textarea>
+											<textarea id="doc-vld-ta-2" name="dishe_info"><%=d.getDishe_info() %></textarea>
 										</div>
 
 										<button class="am-btn am-btn-secondary" type="submit">修改</button>
@@ -122,5 +123,17 @@
 			<!--<i class="fa fa-bars" aria-hidden="true"></i>--></a>
 
 	</body>
-
+	<script type="text/javascript">
+	/*---- 输入框提示 ----*/
+	/* function Ntoed(){
+		var noted = document.getElementById('note');
+		noted.style.display='none';
+		
+	} */
+	/* function Ntoeb(){
+		var noteb = document.getElementById('note');
+		noteb.style.display='block';
+		
+	} */
+	</script>
 </html>
