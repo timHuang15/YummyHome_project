@@ -78,10 +78,10 @@ public class Dishe {
 	}
 	@Override
 	public String toString() {
-		return "Dishe [dishe_id=" + dishe_id + ", dishe_name=" + dishe_name + ", dishe_category=" + dishe_category
-				+ ", dishe_info=" + dishe_info + ", dishe_price=" + dishe_price + ", dishe_total=" + dishe_total
-				+ ", dishe_surplus=" + dishe_surplus + "]";
+		return "Dishe [dishe_name=" + dishe_name + ", dishe_category=" + dishe_category + ", dishe_price=" + dishe_price
+				+ "]";
 	}
+	
 	
 	
 }

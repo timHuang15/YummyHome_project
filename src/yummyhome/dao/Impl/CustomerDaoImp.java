@@ -49,6 +49,7 @@ public class CustomerDaoImp implements CustomerDao {
 				sql = sql+whereSql;
 			}
 			sql = sql +"order by customer_id desc";
+	
 			list = JdbcUtils.executeQuery(conn, sql, params, new CustomerResultSetHandler());
 		} catch (SQLException e) {
 			e.printStackTrace();

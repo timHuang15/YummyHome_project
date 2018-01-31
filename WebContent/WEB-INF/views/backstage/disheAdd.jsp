@@ -55,33 +55,40 @@
 						<!-- Row start -->
 						<div class="am-u-sm-12">
 							<div class="card-box">
-								<form action="" class="am-form" data-am-validator>
+								<form action="<%=request.getContextPath()%>/controller/back_control/disheOperation/add.jsp" 
+								method="post" class="am-form" data-am-validator>
 									<fieldset>
 										<div class="am-form-group">
 											<label for="doc-vld-dishename">菜品名：</label>
-											<input type="text" id="doc-vld-dishename" minlength="2" placeholder="请输入菜品名（至少 2个字符）" required/>
+											<input type="text" id="doc-vld-dishename" 
+												   minlength="2" placeholder="请输入菜品名（至少 2个字符）" 
+												   name="dishe_name" required/>
 										</div>
 
 										<div class="am-form-group">
 											<label for="doc-select-1">菜品类别</label>
-											<select id="doc-select-1" required>
+											<select id="doc-select-1" name="dishe_category" required>
 												<option value="">-=请选择一项=-</option>
-												<option value="option1">粤菜</option>
-												<option value="option2">川菜</option>
-												<option value="option3">西餐</option>
-												<option value="option4">饮品</option>
+												<option value="粤菜">粤菜</option>
+												<option value="川菜">川菜</option>
+												<option value="西餐">西餐</option>
+												<option value="饮品">饮品</option>
 											</select>
 											<span class="am-form-caret"></span>
 										</div>
 
 										<div class="am-form-group">
 											<label for="doc-vld-price">菜品价格：</label>
-											<input type="number" id="doc-vld-price" min="20" max="200" placeholder="请设置价格(20~200)" required/>
+											<input type="number" id="doc-vld-price" 
+												   min="20" max="200" placeholder="请设置价格(20~200)" 
+												   name="dishe_price"	required/>
 										</div>
 
 										<div class="am-form-group">
 											<label for="doc-vld-total">菜品日销售额：</label>
-											<input type="number" class="" id="doc-vld-total" min="50" max="200" placeholder="请设置销售额(50~200)" required />
+											<input type="number" id="doc-vld-total" 
+												   min="50" max="200" placeholder="请设置销售额(50~200)" 
+												   name="dishe_total"	required />
 										</div>
 
 										<div class="am-form-group">
@@ -91,7 +98,7 @@
 
 										<div class="am-form-group">
 											<label for="doc-vld-ta-2">菜品描述：</label>
-											<textarea id="doc-vld-ta-2" minlength="10" maxlength="100"></textarea>
+											<textarea id="doc-vld-ta-2" maxlength="100" name="dishe_info"></textarea>
 										</div>
 
 										<button class="am-btn am-btn-secondary" type="submit">添加</button>

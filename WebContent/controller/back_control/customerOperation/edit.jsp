@@ -31,7 +31,7 @@
 	request.setAttribute("msg", "修改成功");
 	request.setAttribute("targetPage", "/controller/back_control/tocustomerTable.jsp");
 	
-	RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/backstage/customer/msg.jsp");
+	RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/backstage/public/msg.jsp");
 	rd.forward(request, response);
 %>
     

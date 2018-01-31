@@ -15,4 +15,6 @@ public interface DisheDao {
 	public void delete(Integer[] ids);
 	/*修改菜品信息*/
 	public void update(Dishe d);
+	/*插入新菜品*/
+	public void insert(Dishe d);
 }

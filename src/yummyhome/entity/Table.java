@@ -42,11 +42,12 @@ public class Table {
 	public void setTable_price(Double table_price) {
 		this.table_price = table_price;
 	}
+	
 	@Override
 	public String toString() {
-		return "Table [table_id=" + table_id + ", table_people=" + table_people + ", table_total=" + table_total
-				+ ", table_surplus=" + table_surplus + ", table_price=" + table_price + "]";
+		return " [table_id=" + table_id + ", table_people=" + table_people + "]";
 	}
+	
 	
 	
 }

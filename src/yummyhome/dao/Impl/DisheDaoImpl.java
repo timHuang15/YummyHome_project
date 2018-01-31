@@ -120,5 +120,31 @@ public class DisheDaoImpl implements DisheDao {
 			JdbcUtils.close(conn);
 		}
 	}
+	
+	/**
+	 * 插入新菜品
+	 * */
+	@Override
+	public void insert(Dishe d) {
+		Connection conn = null;
+		try 
+		{
+			conn = JdbcUtils.getConnection();
+			String sql = "insert into dishe (dishe_name,dishe_category,dishe_info,dishe_price,dishe_total,dishe_surplus)";
+				   sql = sql +" values (?,?,?,?,?,?)";
+			Object[] params = {d.getDishe_name(),d.getDishe_category(),d.getDishe_info(),d.getDishe_price(),d.getDishe_total(),d.getDishe_surplus()};
+			JdbcUtils.executeUpdate(conn, sql,params);
+		} 
+		catch (SQLException e) 
+		{
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+		finally 
+		{
+			JdbcUtils.close(conn);
+		
+		}
 
+	}
 }

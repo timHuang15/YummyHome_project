@@ -15,7 +15,7 @@ CustomerDao cd = new CustomerDaoImp();
 	request.setCharacterEncoding("UTF-8");	
 
 	WhereCondition whereCondition = SqlUtil.buildWhere(request);
-
+	
 	List<Customer> list = cd.queryList(whereCondition.getWhereSql(),whereCondition.getWhereParams());
 	request.setAttribute("customerList", list);
 

@@ -44,10 +44,10 @@ public class Customer {
 	}
 	@Override
 	public String toString() {
-		return "Customer [customer_id=" + customer_id + ", customer_name=" + customer_name + ", customer_phone="
-				+ customer_phone + ", customer_user_name=" + customer_user_name + ", customer_pwd=" + customer_pwd
-				+ "]";
+		return " [customer_id=" + customer_id + ", customer_name=" + customer_name + ", customer_phone="
+				+ customer_phone + ", customer_user_name=" + customer_user_name + "]";
 	}
+	
 	
 	
 }
