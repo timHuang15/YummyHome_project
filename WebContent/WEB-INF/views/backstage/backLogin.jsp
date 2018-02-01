@@ -25,14 +25,15 @@
 	                    <h4 class="text-uppercase font-bold m-b-0">Sign In</h4>
 	                </div>
 	                <div class="panel-body">
-	                	<form class="am-form">
+	                	<form class="am-form" 
+	                	action="<%=request.getContextPath()%>/controller/back_control/adminOperation/login.jsp">
 	                		<div class="am-g">
 	                			<div class="am-form-group">
-							      <input type="email" class="am-radius"  placeholder="Username">
+							      <input type="text" name="username" class="am-radius"  placeholder="Username">
 							    </div>
 							
 							    <div class="am-form-group form-horizontal m-t-20">
-							      <input type="password" class="am-radius"  placeholder="Password">
+							      <input type="password" name="password" class="am-radius"  placeholder="Password">
 							    </div>
 							    
 							    <div class="am-form-group ">
@@ -42,7 +43,7 @@
 		                        </div>
 		                        
 		                        <div class="am-form-group ">
-		                        	<button type="button" class="am-btn am-btn-primary am-radius" style="width: 100%;height: 100%;">Log In</button>
+		                        	<button type="submit" class="am-btn am-btn-primary am-radius" style="width: 100%;height: 100%;">Log In</button>
 		                        </div>
 		                        
 		                        <div class="am-form-group ">

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+                      http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+  version="3.0"
+  metadata-complete="true">
+
+<!-- 后台登录过滤器 -->
+	<filter>
+		<filter-name>backLogin_filter</filter-name>
+		<filter-class>yummyhome.back.filter.AdminLoginFilter</filter-class>
+		<init-param>
+			<param-name>encludes</param-name>
+			<param-value>tobackLogin.jsp,login.jsp</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>backLogin_filter</filter-name>
+		<url-pattern>/controller/back_control/*</url-pattern>
+	</filter-mapping>
+
+</web-app>

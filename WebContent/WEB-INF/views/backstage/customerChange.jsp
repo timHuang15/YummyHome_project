@@ -96,7 +96,7 @@
 												   value="<%=c.getCustomer_pwd() %>" required />
 										</div>
 										
-										<button class="am-btn am-btn-secondary" type="submit">添加</button>
+										<button class="am-btn am-btn-secondary" type="submit">修改</button>
 									</fieldset>
 								</form>
 
