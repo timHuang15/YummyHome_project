@@ -28,6 +28,7 @@
 	
 	if(a!=null){
 		session.setAttribute("adminLogined", a);
+		session.setMaxInactiveInterval(120*60);
 		response.sendRedirect(request.getContextPath()+"/controller/back_control/toorderSelectTable.jsp");
 	}
 	else{

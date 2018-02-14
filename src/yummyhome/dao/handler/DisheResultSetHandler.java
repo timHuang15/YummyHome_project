@@ -18,8 +18,7 @@ public class DisheResultSetHandler implements ResultSetHandler<Dishe> {
 		dishe.setDishe_name(rs.getString("dishe_name"));
 		dishe.setDishe_category(rs.getString("dishe_category"));
 		dishe.setDishe_info(rs.getString("dishe_info"));
-		dishe.setDishe_Simg_url(rs.getString("dishe_Simg_url"));
-		dishe.setDishe_Bimg_url(rs.getString("dishe_Bimg_url"));
+		dishe.setDishe_images(rs.getString("dishe_images"));
 		dishe.setDishe_price(rs.getDouble("dishe_price"));
 		dishe.setDishe_total(rs.getInt("dishe_total"));
 		dishe.setDishe_surplus(rs.getInt("dishe_surplus"));

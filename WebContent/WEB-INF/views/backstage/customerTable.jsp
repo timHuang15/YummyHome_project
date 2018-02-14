@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@page import="java.util.*"%>
+<%@page import="yummyhome.util.*" %>
 <%@page import="yummyhome.entity.*"%>
 <!DOCTYPE html>
 <html>
@@ -75,9 +76,10 @@
 							<!-- search -->
 							
 							<div class="am-u-sm-12 am-u-md-3">
-							<form class="am-form"
+							<form class="am-form" id="searchForm"
 								  action="<%=request.getContextPath()%>/controller/back_control/tocustomerTable.jsp"method="post">
 								<div class="am-input-group am-input-group-sm">
+									<input type="hidden" name="currentPage" value="1">
 									<input type="text" name="where-customer_name-like" value="${param['where-customer_name-like']}"
 										   class="am-form-field" placeholder="请输入姓名">
 									<span class="am-input-group-btn">
@@ -114,9 +116,10 @@
 										<input type="hidden" id="ctx"
 											value="<%=request.getContextPath()%>" />
 										<% 
-										List<Customer> customers = (List<Customer>) request.getAttribute("customerList");
-										if (null != customers) {
-											for (Customer c : customers) {
+										//List<Customer> customers = (List<Customer>) request.getAttribute("customerList");
+										PageData<Customer> pageData = (PageData<Customer>)request.getAttribute("customerPageList");
+										if (null != pageData.getResultList()) {
+											for (Customer c : pageData.getResultList()) {
 										%>
 											<tr>
 												<td><input type="checkbox" name="id"
@@ -149,29 +152,20 @@
 										</tbody>
 									</table>
 									<div class="am-cf">
-										共 15 条记录
+										共 <%=pageData.getTotalRecods() %> 条记录,当前第<%=pageData.getCurrentPage() %>/<%=pageData.getTotalPages() %>页
 										<div class="am-fr">
 											<ul class="am-pagination">
-												<li class="am-disabled">
-													<a href="#">«</a>
-												</li>
-												<li class="am-active">
-													<a href="#">1</a>
+												<li>
+													<a href="javascript:toPage(1)">首页</a>
 												</li>
 												<li>
-													<a href="#">2</a>
+													<a href="javascript:toPage(<%=pageData.getPre() %>)">«</a>
 												</li>
 												<li>
-													<a href="#">3</a>
+													<a href="javascript:toPage(<%=pageData.getNext() %>)">»</a>
 												</li>
 												<li>
-													<a href="#">4</a>
-												</li>
-												<li>
-													<a href="#">5</a>
-												</li>
-												<li>
-													<a href="#">»</a>
+													<a href="javascript:toPage(<%=pageData.getTotalPages() %>)">尾页</a>
 												</li>
 											</ul>
 										</div>
@@ -255,6 +249,13 @@
 			var form = document.getElementById('listForm');
 			form.submit();
 		}
+	}
+	/*---- 分页跳转操作 ----*/
+	function toPage(currentPage)
+	{
+		var searchForm = document.getElementById('searchForm');
+		searchForm['currentPage'].value = currentPage;
+		searchForm.submit();
 	}
 	</script>
 </html>

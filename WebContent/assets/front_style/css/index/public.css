@@ -1,0 +1,45 @@
+/**************************顶部navbar**************************/
+.navbar-change{
+	margin-bottom: 0;
+	border-radius:0;
+	margin-left: 0px;
+	padding-left: 0px;
+	border: 0px;
+}
+
+.container{
+	height: auto;
+	width: auto;
+}
+
+/**************************底部**************************/
+.FL{
+	float: left;
+}
+
+.FR{
+	float: right;
+}
+
+.footer{
+	text-align:center;
+	background-color:#222222;
+	line-height:24px;
+	padding:50px 0px;
+	}
+	
+.footer i{
+	font-style:normal;
+	margin:0 5px;
+	}
+	
+.footer a{
+	color:#FFF;
+	}
+.footer p{
+	color: #fff;
+}
+	
+.footer a:hover{
+	color:#3276B1;
+	}

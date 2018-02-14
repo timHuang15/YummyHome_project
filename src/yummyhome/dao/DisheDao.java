@@ -17,4 +17,10 @@ public interface DisheDao {
 	public void update(Dishe d);
 	/*插入新菜品*/
 	public void insert(Dishe d);
+	
+	/*<----------分页查询---------->*/
+	/*根据条件分页列出所有菜品*/
+	public List<Dishe> pagequeryList(String whereSql,Object[] params,long page,long pageSize);
+	/*根据条件总记录数查询*/
+	public long queryCount(String whereSql,Object[] params);
 }

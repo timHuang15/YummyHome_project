@@ -2,6 +2,8 @@ package yummyhome.entity;
 
 import java.math.BigDecimal;
 
+import com.google.gson.Gson;
+
 public class Dishe {
 	/*菜品ID*/
 	private Integer dishe_id;
@@ -11,10 +13,8 @@ public class Dishe {
 	private String dishe_category;
 	/*菜品信息*/
 	private String dishe_info;
-	/*菜品大图片URL*/
-	private String dishe_Bimg_url;
-	/*菜品小图片URL*/
-	private String dishe_Simg_url;
+	/*菜品图片URL*/
+	private String dishe_images;	
 	/*菜品价格*/
 	private Double dishe_price;
 	/*菜品日销售额*/
@@ -46,17 +46,11 @@ public class Dishe {
 	public void setDishe_info(String dishe_info) {
 		this.dishe_info = dishe_info;
 	}
-	public String getDishe_Bimg_url() {
-		return dishe_Bimg_url;
+	public String getDishe_images() {
+		return dishe_images;
 	}
-	public void setDishe_Bimg_url(String dishe_Bimg_url) {
-		this.dishe_Bimg_url = dishe_Bimg_url;
-	}
-	public String getDishe_Simg_url() {
-		return dishe_Simg_url;
-	}
-	public void setDishe_Simg_url(String dishe_Simg_url) {
-		this.dishe_Simg_url = dishe_Simg_url;
+	public void setDishe_images(String dishe_images) {
+		this.dishe_images = dishe_images;
 	}
 	public Double getDishe_price() {
 		return dishe_price;
@@ -76,12 +70,12 @@ public class Dishe {
 	public void setDishe_surplus(Integer dishe_surplus) {
 		this.dishe_surplus = dishe_surplus;
 	}
-	@Override
-	public String toString() {
-		return "Dishe [dishe_name=" + dishe_name + ", dishe_category=" + dishe_category + ", dishe_price=" + dishe_price
-				+ "]";
-	}
 	
+	public String[] getConvertImages() {
+		Gson gson = new Gson();
+		return gson.fromJson(this.dishe_images, String[].class);
+		
+	}
 	
 	
 }

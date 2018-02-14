@@ -10,6 +10,30 @@
 	
 	<%@ include file="/WEB-INF/views/backstage/public/commitCSS.jsp"%>
 	
+	<style type="text/css">
+	.img{
+		display: inline-block;
+		position:relative;
+	}
+	.img img{
+		width: 242px;
+		height: 200px
+	}
+	.img .del_img{
+		position:absolute;
+		right:0;
+		top:0;
+		width:15px;
+		height: 15px;
+		background-color: #000;
+		color:#fff;
+		opacity: 0.8;
+		text-align: center;
+		line-height: 15px;
+		cursor: pointer;
+	}
+	</style>
+	
 	</head>
 
 	<body>
@@ -94,7 +118,15 @@
 
 										<div class="am-form-group">
 											<label for="doc-vld-photo">菜品图片：</label>
-											<input type="file" id="shangpinfile">
+											<iframe height="37px" width="604px" id="uploadFrame"
+													src="<%=request.getContextPath()%>/controller/back_control/disheOperation/toupload.jsp"></iframe>
+										</div>
+										
+										<div class="am-form-group">
+											<label for="doc-vld-photo">已传图片：</label>
+											<div id="images">
+												
+											</div>
 										</div>
 
 										<div class="am-form-group" style="position:relative;">
@@ -124,16 +156,25 @@
 
 	</body>
 	<script type="text/javascript">
-	/*---- 输入框提示 ----*/
-	/* function Ntoed(){
-		var noted = document.getElementById('note');
-		noted.style.display='none';
+		function uploadComplete(file,alt)
+		{
+			if(file)
+			{
+				var imagesDiv = document.getElementById('images');
+				var imgDiv = document.createElement('div');
+				imgDiv.className='img';
+				imgDiv.innerHTML = '<img src="<%=request.getContextPath()%>'+file+'" alt="'+alt+'"/>';
+				imgDiv.innerHTML = imgDiv.innerHTML + '<input type="hidden" name="dishe_images" value="'+file+'"/>';
+				imgDiv.innerHTML = imgDiv.innerHTML + '<div class="del_img" onclick="deleteImg(this.parentNode)">X</div>';
+				imagesDiv.appendChild(imgDiv);	
+			} 
+			var uploadFrame = document.getElementById('uploadFrame');
+			uploadFrame.src="<%=request.getContextPath()%>/controller/back_control/disheOperation/toupload.jsp"; 
 		
-	} */
-	/* function Ntoeb(){
-		var noteb = document.getElementById('note');
-		noteb.style.display='block';
+		}
 		
-	} */
+		function deleteImg(o) {
+			o.parentNode.removeChild(o);
+		}
 	</script>
 </html>

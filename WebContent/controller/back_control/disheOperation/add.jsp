@@ -4,9 +4,13 @@
 <%@page import="yummyhome.dao.*" %>
 <%@page import="yummyhome.dao.Impl.*" %>
 <%@page import="yummyhome.entity.*" %>
+<%@page import="com.google.gson.*" %>
 
-<%! DisheDao disheDao = new DisheDaoImpl();%>
-
+<%! 
+	DisheDao disheDao = new DisheDaoImpl();
+	Gson gson = new Gson();
+%>
+	
 <%
 //设置请求编码
 	request.setCharacterEncoding("UTF-8");
@@ -16,6 +20,7 @@
 	String StDishePrice = request.getParameter("dishe_price");
 	String StDisheTotal = request.getParameter("dishe_total");
 	String StDisheInfo = request.getParameter("dishe_info");
+	String[] StDisheImages = request.getParameterValues("dishe_images");
 	
 	Double dDishePrice = Double.valueOf(StDishePrice);
 	Integer IDisheTotal = Integer.valueOf(StDisheTotal);
@@ -27,6 +32,7 @@
 	dishe.setDishe_total(IDisheTotal);
 	dishe.setDishe_surplus(IDisheTotal);
 	dishe.setDishe_info(StDisheInfo);
+	dishe.setDishe_images(gson.toJson(StDisheImages));
 	
 	disheDao.insert(dishe);
 	//转到视图呈现

@@ -1,0 +1,63 @@
+/*.navbar-change{
+	margin-bottom: 0;
+	border-radius:0;
+	margin-left: 0px;
+	padding-left: 0px;
+	border: 0px;
+}
+
+.container{
+	height: auto;
+	width: auto;
+}*/
+
+.jumbotron-change{
+	margin-bottom: 0;
+	background: url(../../img/indexImage/JuMu.jpg);
+	background-size:cover;
+	background-repeat: no-repeat;
+	padding-top: 100px;
+	padding-bottom: 100px;
+}
+.jumbotron h1{
+	color: #3276B1;
+}
+
+.hr-R{
+	height: 10px;
+	width: 33.3%;
+	border: none;
+	border-top: 3px groove skyblue;
+	float: left;
+}
+
+.hr-L{
+	height: 10px;
+	width: 33.3%;
+	border: none;
+	border-top: 3px groove skyblue;
+	float: right;
+}
+
+.today-recommend{
+	width: 33.3%;
+	font-size:65%;
+	font-style: italic ;
+	font-weight: bold;
+	line-height: 100%;
+	text-align: center;
+	float: left;
+	display: inline;
+}
+
+.text-center{
+	text-align: center;
+	word-wrap:break-word;
+	text-overflow: ellipsis;
+}
+
+.thumbnail-change{
+	border:1px solid #3276B1;
+}
+
+

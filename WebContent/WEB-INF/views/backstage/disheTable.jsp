@@ -1,6 +1,8 @@
+<%@page import="yummyhome.util.PageData"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@page import="java.util.*"%>
+<%@page import="yummyhome.util.*" %>
 <%@page import="yummyhome.entity.*"%>
 <!DOCTYPE html>
 <html>
@@ -74,9 +76,10 @@
 
 							<!-- search -->
 							<div class="am-u-sm-12 am-u-md-3">
-							<form class="am-form"
+							<form class="am-form" id="searchForm"
 								  action="<%=request.getContextPath()%>/controller/back_control/todisheTable.jsp"method="post">
 								<div class="am-input-group am-input-group-sm">
+									<input type="hidden" name="currentPage" value="1">
 									<input type="text" class="am-form-field" placeholder="请输入菜品名称"
 											name="where-dishe_name-like" value="${param['where-dishe_name-like']}">
 									<span class="am-input-group-btn">
@@ -116,9 +119,10 @@
 											value="<%=request.getContextPath()%>" />
 										<!-- loop start -->
 										<%
-											List<Dishe> dishes = (List<Dishe>)request.getAttribute("disheList");
-											if(null!=dishes){
-												for(Dishe d : dishes){
+											//List<Dishe> dishes = (List<Dishe>)request.getAttribute("disheList");
+											PageData<Dishe> pageData = (PageData<Dishe>)request.getAttribute("dishePageList");
+											if(null!=pageData.getResultList()){
+												for(Dishe d : pageData.getResultList()){
 										%>
 											<tr>
 												<td><input type="checkbox" name="id"
@@ -152,29 +156,21 @@
 										</tbody>
 									</table>
 									<div class="am-cf">
-										共 15 条记录
+										共 <%=pageData.getTotalRecods() %> 条记录,当前第<%=pageData.getCurrentPage() %>/<%=pageData.getTotalPages() %>页
 										<div class="am-fr">
 											<ul class="am-pagination">
-												<li class="am-disabled">
-													<a href="#">«</a>
-												</li>
-												<li class="am-active">
-													<a href="#">1</a>
+												<li>
+													<a href="javascript:toPage(1)">首页</a>
 												</li>
 												<li>
-													<a href="#">2</a>
+													<a href="javascript:toPage(<%=pageData.getPre()%>)">«</a>
+												</li>
+												
+												<li>
+													<a href="javascript:toPage(<%=pageData.getNext() %>)">»</a>
 												</li>
 												<li>
-													<a href="#">3</a>
-												</li>
-												<li>
-													<a href="#">4</a>
-												</li>
-												<li>
-													<a href="#">5</a>
-												</li>
-												<li>
-													<a href="#">»</a>
+													<a href="javascript:toPage(<%=pageData.getTotalPages() %>)">尾页</a>
 												</li>
 											</ul>
 										</div>
@@ -258,6 +254,13 @@
 			var form = document.getElementById('listForm');
 			form.submit();
 		}
+	}
+	/*---- 分页跳转操作 ----*/
+	function toPage(currentPage)
+	{
+		var searchForm = document.getElementById('searchForm');
+		searchForm['currentPage'].value = currentPage;
+		searchForm.submit();
 	}
 	</script>
 

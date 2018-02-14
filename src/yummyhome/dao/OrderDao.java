@@ -16,4 +16,10 @@ public interface OrderDao {
 	public void delete(Integer[] ids);
 	/*标记订单已处理*/
 	public void dealed(Order o);
+	
+	/*<----------分页查询---------->*/
+	/*根据条件分页列出所有订单*/
+	public List<Order> pagequeryList(String whereSql,Object[] params,long page,long pageSize);
+	/*根据条件总记录数查询*/
+	public long queryCount(String whereSql,Object[] params);
 }

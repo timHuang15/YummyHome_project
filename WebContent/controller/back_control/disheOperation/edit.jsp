@@ -4,8 +4,12 @@
 <%@page import="yummyhome.dao.*" %>
 <%@page import="yummyhome.dao.Impl.*" %>
 <%@page import="yummyhome.entity.*" %>
+<%@page import="com.google.gson.*" %>
 
-<%! DisheDao disheDao = new DisheDaoImpl();%>
+<%! 
+	DisheDao disheDao = new DisheDaoImpl();
+	Gson gson = new Gson();
+%>
 
 <%
 	//设置请求编码
@@ -13,11 +17,12 @@
 	//获取请求参数
 	String idStr = request.getParameter("dishe_id");
 	String StName = request.getParameter("dishe_name");
-	//String StCategory = request.getParameter("dishe_category");
 	String StInfo = request.getParameter("dishe_info");
 	String StPrice = request.getParameter("dishe_price");
 	String StTotal = request.getParameter("dishe_total");
 	String StSurplus = request.getParameter("dishe_surplus");
+	String[] StDisheImages = request.getParameterValues("dishe_images");
+	
 	//转换参数的类型
 	Integer dId = Integer.valueOf(idStr);
 	Double  dprice = Double.valueOf(StPrice);
@@ -27,11 +32,11 @@
 	Dishe d = new Dishe();
 	d.setDishe_id(dId);
 	d.setDishe_name(StName);
-	//d.setDishe_category(StCategory);
 	d.setDishe_info(StInfo);
 	d.setDishe_price(dprice);
 	d.setDishe_total(dtotal);
 	d.setDishe_surplus(dsurplus);
+	d.setDishe_images(gson.toJson(StDisheImages));
 	
 	disheDao.update(d);
 	//转到视图呈现
